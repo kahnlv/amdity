@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+<title>{aspcms:sitetitle}{aspcms:additiontitle}</title>
+<meta name="Keywords" content="{aspcms:sitekeywords}" >
+<meta name="Description" content="{aspcms:sitedesc}" >
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META content="MSHTML 6.00.3790.4807" name=GENERATOR>
+<LINK href="/favicon.ico" rel="shortcut icon">
+<script type="text/javascript"> var system = { win: false, mac: false, xll: false }; var p = navigator.platform; system.win = p.indexOf("Win") == 0; system.mac = p.indexOf("Mac") == 0; system.x11 = (p == "X11") || (p.indexOf("Linux") == 0); if (system.win || system.mac || system.xll) { } else { window.top.location.href = 'http://anson.gotoip55.com/'; }</script>
+<link href="{aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/css/css.css" rel="stylesheet" media="screen" type="text/css" />
+<script language="javascript" type="text/javascript" src="{aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/js/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript" src="{aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/js/j.js" ></script>
+<script language="javascript" type="text/javascript" src="{aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/js/pic_scroll.js"></script>
+</head>
+<body>
+{aspcms:top}
+<script src="{aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/js/M.js"></script> 
+<script> 
+      M.ready(function(){
+        var timer ,
+        counter = -1 ,
+        intval = 8000 ;
+        var imgs = [
+{ cn:'a1' , btn:'cir1' , cs:'cnow' , href:'#'} ,
+{ cn:'a2' , btn:'cir2' , cs:'cnow' , href:'#'} ,
+{ cn:'a3' , btn:'cir3' , cs:'cnow' , href:'#'} ,
+];
+        var html = "" ,
+        tmpl = '<li><a href="#" class="cc {cs}" id="{btn}"></a></li>';
+		tmpl1 = '<li><a href="#" class="cc" id="{btn}"></a></li>';
+        imgs.each(function( i , img ){
+		if(i == 0){M.getEl("#circle").append( M.template( tmpl , img ) );}
+		else{M.getEl("#circle").append( M.template( tmpl1 , img ) );}
+          (function(N , btn ){
+            M.getEl( "#" + btn ).click(function(){
+              counter = N  - 1 ;
+              play();
+            });
+          }(i , img.btn ));
+        });
+        function play(){
+          !!timer && clearTimeout( timer );
+          counter =  counter + 1 == imgs.length   ? 0 :  counter + 1 ;
+          M.getEls(".cnow").doApply( "removeClass" , "cnow");
+          M.getEl("#" + imgs[ counter ].btn ).addClass("cnow");
+          M.get("#box").className= imgs[ counter ].cn ;
+		  $("#box #mPics a").attr('href', imgs[ counter ].href);
+          timer = setTimeout( play , intval );
+        }
+        setTimeout( play , intval ) ;
+        
+        M.getEl("#li").click(function(){
+          console.log( imgs[  counter <0 ? 0 : counter ].href )
+          M.locate( imgs[  counter <0 ? 0 : counter ].href )
+          return false;
+        });
+        
+        M.getEl("#nClose").click(function(){
+          M.get("#nWin").style.display = "none";
+        });
+        M.getEl("#nokBtn").click(function(){
+          M.get("#nWin").style.display = "block";
+        })
+      });
+</script>
+
+<div id="index_box">
+  <div id="box" class="a1">
+    <div id="anim">
+      <div id="marquee">
+        <ul id="mPics">
+          <li id="li">
+<style>
+.a1 #mPics li{background:url({aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/images/lb1.jpg) 50% 50% no-repeat;}
+.a2 #mPics li{background:url({aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/images/lb2.jpg) 50% 50% no-repeat;}
+.a3 #mPics li{background:url({aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/images/lb3.jpg) 50% 50% no-repeat;}
+
+</style>	  
+		  </li>
+
+        </ul>
+        <ul id="circle">
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mna">
+  <div>
+    <div class="ina">
+      <div><img src="{aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/images/gywm.gif" width="330" height="36" /></div>
+      <div style="margin:10px auto;">{aspcms:about sort=19} <img src="[about:pic]" width="105" height="68" style="float:left" />[about:desc len=160]{/aspcms:about}
+      </div>
+    </div>
+    <div class="inb">
+      <div class="inba"><img src="{aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/images/news.gif" width="91" height="26" /></div>
+      <div style="margin-top:10px;">
+        <div class="inbb"> 
+          <!-- size: 280px * 192px --> 
+{aspcms:slide} 
+        </div>
+        <div class="inbc">
+          <ul>{aspcms:content sort=1 num=8 order=order}
+            <li><span>[content:date style=m-d]</span><a href="[content:link]">[content:title len=15]</a></li>
+              {/aspcms:content}
+          </ul>
+        </div>
+        <div style=" clear:both"></div>
+      </div>
+    </div>
+    <div class="inbd">
+      <div class="inbda"><img src="{aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/images/td.gif" width="139" height="26" /></div>
+      <div>{aspcms:type sort=13}<a target="_blank" href="[type:link]"><img src="{aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/images/01.gif"  style="margin-top:10px;"/></a>{/aspcms:type}<br />
+        {aspcms:type sort=18}<a href="[type:link]"><img  style="margin-top:20px;" src="{aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/images/02.gif" width="206" height="45" /></a>{/aspcms:type}</div>
+    </div>
+    <div style="clear:both"></div>
+  </div>
+  <div class="inz">
+    <div class="inbe"><img src="{aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/images/home_11.jpg" width="37" height="133" /></div>
+    <div class="inbf">
+<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td height="0"></td>
+</tr>
+</table>
+<table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<div style="height: 194px;">
+<div id="demo" style="overflow: hidden; width: 938px; height: 174px;">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td id="demo1"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+{aspcms:content sort=5 num=10 order=order}
+<td valign="top">
+<table border="0" cellpadding="0" cellspacing="5" width="154">
+<tbody><tr>
+<td align="left" valign="top"><table style="border: 1px solid rgb(233, 233, 233);" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td align="center" valign="top">
+<a href="[content:link]"><img src="[content:pic]" border=0 height="120" width="160"></a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td align="center" height="15" valign="middle">
+<a href="[content:link]">[content:title len=10]</a></td>
+</tr>
+</tbody></table>
+</td>
+{/aspcms:content} 
+</tr>
+</tbody></table></td>
+<td id="demo2"></td>
+</tr>
+</tbody></table>
+</div>
+<script type="text/javascript">
+var speed=25
+demo2.innerHTML=demo1.innerHTML
+function Marquee(){
+if(demo2.offsetWidth-demo.scrollLeft<=0)
+demo.scrollLeft-=demo1.offsetWidth
+else{
+demo.scrollLeft++
+}
+}
+var MyMar=setInterval(Marquee,speed)
+demo.onmouseover=function() {clearInterval(MyMar)}
+demo.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
+</script>
+</td>
+</tr>
+</table>
+<!--------------------显示最新产品的子程序结束--------------------->
+    </div>
+    <div style="clear:both"></div>
+  </div>
+   <div class="inbh">
+      {aspcms:type sort=20}<a href="[type:link]"><img src="{aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/images/03_01.png" /></a>{/aspcms:type}<img src="{aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/images/03_02.png" /><div class="index_qq"> 
+      	<a href="tencent://message/?uin=284787276&Site=&Menu=yes"><img src="http://wpa.qq.com/pa?p=1:284787276:7" alt="点击这里给我发送消息" border="0"></a>
+        <a href="tencent://message/?uin=284787276&Site=&Menu=yes"><img src="http://wpa.qq.com/pa?p=1:284787276:7" alt="点击这里给我发送消息" border="0"></a>
+      </div>
+  </div>
+</div>
+{aspcms:foot}
+</body>
+</html>

@@ -1,0 +1,16 @@
+  <div class="list1">
+    <div class="list1a">{aspcms:sortname}</div>
+    <div class="list1b">
+      <ul>{aspcms:navlist type={aspcms:topsortid}}
+        
+        <li><a href='[navlist:link]'>[navlist:name]</a></li>
+  <ul>{aspcms:1navlist type=[navlist:sortid]}
+  <div class="list1c"><a href="[1navlist:link]">[1navlist:name]</a></div>
+  {/aspcms:1navlist}</ul>
+        {/aspcms:navlist}
+      </ul>
+    </div>
+    <div>
+	{aspcms:type sort=13}<a href="[type:link]"><img src="{aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/images/lx.gif" width="220" height="110" /></a>{/aspcms:type}<br />
+    {aspcms:type sort=18}<a href="[type:link]"><img src="{aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/images/ly.gif" /></a>{/aspcms:type}</div>
+  </div>

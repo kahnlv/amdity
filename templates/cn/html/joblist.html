@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+<title>{aspcms:sorttitle}-{aspcms:sitetitle}</title>
+<meta name="Keywords" content="{aspcms:sortkeyword}" >
+<meta name="Description" content="{aspcms:sortdesc}" >
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META content="MSHTML 6.00.3790.4807" name=GENERATOR>
+<LINK href="/favicon.ico" rel="shortcut icon">
+<link href="{aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/css/css.css" rel="stylesheet" media="screen" type="text/css" />
+</HEAD>
+
+<BODY>
+{aspcms:top}
+<!-- /header -->
+<div align="center"><img src="{aspcms:sitepath}/Templates/{aspcms:defaulttemplate}/images/topn.jpg" /></div>
+<div class="mna">
+{aspcms:template src=left.html}
+  <div class="list2">
+    <div class="list2dh">当前位置:<a href="{aspcms:sitepath}{aspcms:languagepath}">首页</a>{aspcms:position} > [position:link]{/aspcms:position}</div>
+    <div class="byn">
+      <ul>{aspcms:list size=20 order=id}
+        <li><span>[list:date style=yy-m-d]</span><a href="[list:link]">[list:title len=50]</a></li>
+		{/aspcms:list}
+      </ul>
+      <div style="clear:both"></div>
+    </div>
+    <div class="dede_pages">
+ <DIV class=pageNavi><DIV class=wp-pagenavi>[list:pagenumber len=5]</DIV></DIV>
+    </div>
+  </div>
+  <div style="clear:both"></div>
+</div>
+{aspcms:foot}
+</body>
+</html>
