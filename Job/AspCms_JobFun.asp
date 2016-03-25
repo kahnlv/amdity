@@ -1,19 +1,36 @@
 <!--#include file="../inc/AspCms_SettingClass.asp"-->
 <%
-    dim contentId : contentId = getForm("id","get")
-    dim jobInfo, ID, Title
+    Dim action : action  = getForm("act","post")
+    Dim UserID, ContentID, Jobs, Linkman, Gender, Age, Marriage, Education, RegResidence, EduResume, JobResume, Address, PostCode, Phone, Mobile, Email, QQ, AddTime, ApplyStatus, ReplyContent, ReplyTime
     
-    function getJobInfo()
-        if not isnul(contentId) then
-            ID = filterPara(contentId)
-            Dim where : where = "ContentStatus = 1 and ContentID = "&ID
-            Dim rs : Set rs = conn.Exec("select * from {prefix}Content where "&where,"r1")
-            if not rs.eof then
-                
-            else
-                alertMsgAndGo "该招聘信息不存在","-1"
-            end if
+    if len(action) >  0 then        
+        Select case action
+            case "add": response.write addApply
+            case "reply": reply
+        end Select
+    else
+        response.write "闈炴硶鎿嶄綔"
+    end if
+    
+    function addApply
+        ContentID = getForm("id","get")
+        if isnul(ContentID) then
+            addApply = "闈炴硶鎿嶄綔-ContentID涓虹┖"            
         end if
-    end function
+                
+        if isnul(Session("uid")) then UserID = Session("uid") else UserID = 0  end if
+        
+        if isnul(addApply) then
+            dim strSql = "insert {prefix}Apply (UserID, ContentID, Jobs, Linkman, Gender, Age, Marriage, Education, RegResidence, EduResume, JobResume, Address, PostCode, Phone, Mobile, Email, QQ, AddTime, ApplyStatus, ReplyContent, ReplyTime) values ("&UserID&", "&ContentID&", '"&Jobs&"','"&Linkman&"', "&Gender&", "&Age&", '"&Marriage&"','"&Education&"','"&RegResidence&"','"&EduResume&"','"&JobResume&"','"&Address&"','"&PostCode&"','"&Phone&"','"&Mobile&"','"&Email&"','"&QQ&"', "&AddTime&", "&ApplyStatus&",'"&ReplyContent&"', "&ReplyTime&")"
+            
+            'die strSql
+            
+            conn.exec strSql,"exe"
+            
+        end if
+    End function 
+    
+    Sub reply
+        
+    End Sub
 %>
-<%getJobInfo%>
