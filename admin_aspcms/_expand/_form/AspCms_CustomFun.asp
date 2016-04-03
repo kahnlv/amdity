@@ -226,7 +226,7 @@ Sub CustomList
 			"<td colspan=""8"" height=""28"" style=""padding-left:20px;"">"&vbcrlf& _			
 			"页数："&page&"/"&allPage&"  每页"&numPerPage &" 总记录数"&allRecordset&"条 <a href=""?page=1&order="&order&"&sort="&sortID&"&keyword="&keyword&""">首页</a> <a href=""?page="&(page-1)&"&order="&order&"&sort="&sortID&"&keyword="&keyword&""">上一页</a> "&vbcrlf
 		dim pageNumber
-		pageNumber=makePageNumber_(page, 10, allPage, "guestlist","","","")
+		pageNumber=makePageNumber_(page, 10, allPage, "guestlist","","","","")
 		echo pageNumber
 		echo"<a href=""?page="&(page+1)&"&order="&order&"&sort="&sortID&"&keyword="&keyword&""">下一页</a> <a href=""?page="&allPage&"&order="&order&"&sort="&sortID&"&keyword="&keyword&""">尾页</a>"&vbcrlf& _		
 		"</td>"&vbcrlf& _

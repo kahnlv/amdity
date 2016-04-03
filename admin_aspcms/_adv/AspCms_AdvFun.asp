@@ -217,7 +217,7 @@ Sub AdvList
 			"<td colspan=""8"" height=""28"" style=""padding-left:20px;"">"&vbcrlf& _			
 			"页数："&page&"/"&allPage&"  每页"&numPerPage &" 总记录数"&allRecordset&"条 <a href=""?action=Ctoo&keyword="&keyword&"&page=1&psize="&psize&"&order="&order&"&ordsc="&ordsc&""">首页</a> <a href=""?action=Ctoo&keyword="&keyword&"&page="&(page-1)&"&psize="&psize&"&order="&order&"&ordsc="&ordsc&""">上一页</a> "&vbcrlf
 		dim pageNumber
-		pageNumber=makePageNumber_(page, 10, allPage, "newslist",sortID, order,keyword)
+		pageNumber=makePageNumber_(page, 10, allPage, "newslist",sortID, order,keyword,"")
 		echo pageNumber
 		echo"<a href=""?action=Ctoo&keyword="&keyword&"&page="&(page+1)&"&psize="&psize&"&order="&order&"&ordsc="&ordsc&""">下一页</a> <a href=""?action=Ctoo&keyword="&keyword&"&page="&allPage&"&psize="&psize&"&order="&order&"&ordsc="&ordsc&""">尾页</a>"
 		echo"每页显示"&getPageSize("10",psize)&getPageSize("20",psize)&getPageSize("30",psize)&getPageSize("50",psize)

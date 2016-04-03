@@ -173,7 +173,7 @@ Sub OrderList
 		echo"<td colspan=""8"" height=""28"" style=""padding-left:20px;"">"
 		echo"页数："&page&"/"&allPage&"  每页"&numPerPage &" 总记录数"&allRecordset&"条 <a href=""?sortType="&sortType&"&sortid="&sortid&"&keyword="&keyword&"&page=1&psize="&psize&"&order="&order&"&ordsc="&ordsc&""">首页</a> <a href=""?sortType="&sortType&"&sortid="&sortid&"&keyword="&keyword&"&page="&(page-1)&"&psize="&psize&"&order="&order&"&ordsc="&ordsc&""">上一页</a> "&vbcrlf
 		dim pageNumber
-		pageNumber=makePageNumber_(page, 10, allPage, "newslist",sortID, order,keyword)
+		pageNumber=makePageNumber_(page, 10, allPage, "newslist",sortID, order,keyword,sortType)
 		echo pageNumber
 		echo"<a href=""?sortType="&sortType&"&sortid="&sortid&"&keyword="&keyword&"&page="&(page+1)&"&psize="&psize&"&order="&order&"&ordsc="&ordsc&""">下一页</a> <a href=""?sortType="&sortType&"&sortid="&sortid&"&keyword="&keyword&"&page="&allPage&"&psize="&psize&"&order="&order&"&ordsc="&ordsc&""">尾页</a>"&vbcrlf&_		
 			"</td>"&vbcrlf& _			
@@ -239,7 +239,7 @@ dim id :id =getForm("id","get")
 			"<td colspan=""8"" height=""28"" style=""padding-left:20px;"">"&vbcrlf& _			
 		"页数："&page&"/"&allPage&"  每页"&numPerPage &" 总记录数"&allRecordset&"条 <a href=""?sortType="&sortType&"&sortid="&sortid&"&keyword="&keyword&"&page=1&psize="&psize&"&order="&order&"&ordsc="&ordsc&""">首页</a> <a href=""?sortType="&sortType&"&sortid="&sortid&"&keyword="&keyword&"&page="&(page-1)&"&psize="&psize&"&order="&order&"&ordsc="&ordsc&""">上一页</a> "&vbcrlf
 		dim pageNumber
-		pageNumber=makePageNumber_(page, 10, allPage, "newslist",sortID, order,keyword)
+		pageNumber=makePageNumber_(page, 10, allPage, "newslist",sortID, order,keyword,sortType)
 		echo pageNumber
 		echo"<a href=""?sortType="&sortType&"&sortid="&sortid&"&keyword="&keyword&"&page="&(page+1)&"&psize="&psize&"&order="&order&"&ordsc="&ordsc&""">下一页</a> <a href=""?sortType="&sortType&"&sortid="&sortid&"&keyword="&keyword&"&page="&allPage&"&psize="&psize&"&order="&order&"&ordsc="&ordsc&""">尾页</a>"&vbcrlf&_		
 			"</td>"&vbcrlf& _			

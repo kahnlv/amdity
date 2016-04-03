@@ -773,7 +773,7 @@ Function makePageNumber(Byval currentPage,Byval pageListLen,Byval totalPages,Byv
 End Function
 
 '分页中部 后台使用
-Function makePageNumber_(Byval currentPage,Byval pageListLen,Byval totalPages,Byval linkType,Byval sortid, Byval order, Byval keyword)
+Function makePageNumber_(Byval currentPage,Byval pageListLen,Byval totalPages,Byval linkType,Byval sortid, Byval order, Byval keyword, Byval sortType)
 	dim beforePages,pagenumber,page
 	dim beginPage,endPage,strPageNumber
 	if pageListLen mod 2 = 0 then beforePages = pagelistLen / 2 else beforePages = clng(pagelistLen / 2) - 1
@@ -794,7 +794,8 @@ Function makePageNumber_(Byval currentPage,Byval pageListLen,Byval totalPages,By
 		else
 			if linkType="newslist" then
 				'if runMode="0" then
-					strPageNumber=strPageNumber&"<a href='?sortType="&linkType&"&sortid="&sortid&"&keyword="&keyword&"&page="&pagenumber&"&psize="&psize&"&order="&order&"&ordsc="&ordsc&"'>"&pagenumber&"</a>"
+                    if isnul(sortType) then sortType = linkType end if
+					strPageNumber=strPageNumber&"<a href='?sortType="&sortType&"&sortid="&sortid&"&keyword="&keyword&"&page="&pagenumber&"&psize="&psize&"&order="&order&"&ordsc="&ordsc&"'>"&pagenumber&"</a>"
 				'elseif runMode="1" then
 				'	if pagenumber>1 then strPageNumber=strPageNumber&"<a href='"&sortid&"_"&pagenumber&FileExt&"'>"&pagenumber&"</a>&nbsp;" : else strPageNumber=strPageNumber&"<a href='"&sortid&FileExt&"'>"&pagenumber&"</a>&nbsp;"
 				'end if
