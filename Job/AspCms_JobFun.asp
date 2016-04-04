@@ -11,6 +11,7 @@
         end Select
     else
         response.write setting.setResultMessage(-1,"非法操作")
+        response.end
     end if
     
     Sub addApply
@@ -29,9 +30,10 @@
                 end if
             else
                 response.write setting.setResultMessage(-1,"发生异常")
+                response.end
             end if     
         end if
-        response.write Session("uid")        
+        
         if not isnul(Session("uid")) then 
             UserID = Session("uid") 
         else 
@@ -107,6 +109,7 @@
             
         conn.exec strSql,"exe"
         response.write setting.setResultMessage(0,"简历投递成功")
+        response.end
     End Sub 
     
     Sub reply
