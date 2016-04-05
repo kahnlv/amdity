@@ -103,7 +103,7 @@ Class SettingClass
 	End Sub
     
     function setResultMessage(resultCode,msg)
-        Dim message : message = "{resultCode:{0},msg:""{1}""}"
+        Dim message : message = "{""resultCode"":{0},""msg"":""{1}""}"
         setResultMessage = replace(replace(message,"{0}",resultCode),"{1}",msg)
     end function
 End Class

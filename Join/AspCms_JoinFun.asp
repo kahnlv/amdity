@@ -1,6 +1,6 @@
 <!--#include file="../inc/AspCms_SettingClass.asp"-->
 <%
-    Dim action : action  = getForm("act","get") 'getPostForm("act")
+    Dim action : action  = getForm("act","get")
     
     Dim JoinID, SortID, UserID, CompanyName, CompanyUrl, CompanyAddress, OnlineContact, Phone, Email, Advantage
     
@@ -9,8 +9,7 @@
             case "add" : addJoin
         end select
     else
-        response.write setting.setResultMessage(-1,"非法操作")
-        response.end
+        alertMsgAndGo "非法操作","-1"
     end if
     
     '==============申请加盟====================
@@ -43,8 +42,7 @@
         
         CompanyName = getPostForm("cn")
         if isnul(CompanyName) then
-            response.write setting.setResultMessage(-1,"请填写公司名称")
-            response.end
+            alertMsgAndGo "请填写公司名称", "-1"
         end if
         
         CompanyAddress = getPostForm("ca")
@@ -95,6 +93,6 @@
     
     
     function getPostForm(name)
-        getPostForm = filterPara(getForm(name,"get"))
+        getPostForm = filterPara(getForm(name,"post"))
     end function
 %>
