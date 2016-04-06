@@ -1,6 +1,6 @@
 <!--#include file="../inc/AspCms_SettingClass.asp"-->
 <%
-    Dim action : action  = getPostForm("act")
+    Dim action : action  = getForm("act")
     
     Dim UserID, ContentID, Jobs, Linkman, Gender, Age, Marriage, Education, RegResidence, EduResume, JobResume, Address, PostCode, Phone, Mobile, Email, QQ, AddTime, ApplyStatus, ReplyContent, ReplyTime
     
@@ -10,8 +10,7 @@
             case "reply": reply
         end Select
     else
-        response.write setting.setResultMessage(-1,"非法操作")
-        response.end
+        setting.setResultMessage -1,"非法操作"
     end if
     
     Sub addApply
@@ -19,18 +18,13 @@
         
         ContentID = getForm("id","get")
         if isnul(ContentID) then
-            response.write setting.setResultMessage(-1,"招聘记录不存在")   
-            response.end
+            setting.setResultMessage -1,"招聘记录不存在"   
         else
             Dim rs : set rs = Conn.Exec("select * from {prefix}Content where ContentID = "&ContentID,"r1")
             if not rs.eof then
-                if rs("SortID") <> 12 or rs("ContentStatus") <> 1 then 
-                    response.write setting.setResultMessage(-1,"招聘记录不存在")
-                    response.end
-                end if
+                if rs("SortID") <> 12 or rs("ContentStatus") <> 1 setting.setResultMessage -1,"招聘记录不存在"
             else
-                response.write setting.setResultMessage(-1,"发生异常")
-                response.end
+                setting.setResultMessage -1,"发生异常"
             end if     
         end if
         
@@ -40,67 +34,50 @@
             UserID = 0  
         end if
         
-        Jobs = getPostForm("jobs")
-        if isnul(Jobs) then 
-            response.write setting.setResultMessage(-1,"请填写应聘职位") 
-            response.end 
-        end if
+        Jobs = setting.getPostForm("jobs")
+        if isnul(Jobs) then setting.setResultMessage -1,"请填写应聘职位" 
         
-        Linkman = getPostForm("man")
-        if isnul(Linkman) then 
-            response.write setting.setResultMessage(-1,"请填写联系人")
-            response.end
-        end if
+        Linkman = setting.getPostForm("man")
+        if isnul(Linkman) then setting.setResultMessage -1,"请填写联系人"
         
-        Gender = getPostForm("sex")
+        Gender = setting.getPostForm("sex")
         if not isnum(Gender) then Gender = 0
         
-        Age = getPostForm("age")
+        Age = setting.getPostForm("age")
         if not isnum(Age) then Age = 0
         
-        Marriage = getPostForm("marr")
+        Marriage = setting.getPostForm("marr")
         if not isnul(Marriage) then Marriage = "保密"
         
-        Education = getPostForm("edu")
-        RegResidence = getPostForm("reg")
-        EduResume = getPostForm("edure")
-        JobResume = getPostForm("jobre")
-        Address = getPostForm("address")
-        
-        PostCode = getPostForm("code")
-        if not isnum(PostCode) then PostCode = "361006"
+        Education = setting.getPostForm("edu")
+        RegResidence = setting.getPostForm("reg")
+        EduResume = setting.getPostForm("edure")
+        JobResume = setting.getPostForm("jobre")
+        Address = setting.getPostForm("address")        
+        PostCode = setting.getPostForm("code")
         
         dim regEx : set regEx = new RegExp
         regEx.IgnoreCase = false
         
-        Phone = getPostForm("phone")
+        Phone = setting.getPostForm("phone")
         regEx.Pattern = "^(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}"
-        if not isnul(Phone) and not regEx.Test(Phone) then 
-            response.write setting.setResultMessage(-1,"请输入正确的联系电话")
-            response.end
-        end if
+        if not isnul(Phone) and not regEx.Test(Phone) then  setting.setResultMessage -1,"请输入正确的联系电话"
         
-        Mobile = getPostForm("mobile")
+        Mobile = setting.getPostForm("mobile")
         regEx.Pattern = "^1\d{10}$"
-        if not isnul(Mobile) and not regEx.Test(Mobile) then 
-            response.write setting.setResultMessage(-1,"请输入正确的手机号码")
-            response.end
-        end if    
+        if not isnul(Mobile) and not regEx.Test(Mobile) then setting.setResultMessage -1,"请输入正确的手机号码"
         
-        Email = getPostForm("email")
+        Email = setting.getPostForm("email")
         regEx.Pattern = "^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$"
-        if not isnul(Email) and not regEx.Test(Email) then 
-            response.write setting.setResultMessage(-1,"请输入正确的电子邮箱")
-            response.end
-        end if            
+        if not isnul(Email) and not regEx.Test(Email) then setting.setResultMessage -1,"请输入正确的电子邮箱"
         
-        QQ = getPostForm("qq")
+        QQ = setting.getPostForm("qq")
         if not isnum(QQ) then QQ = "00000"
         
-        AddTime = getPostForm("at")
+        AddTime = setting.getPostForm("at")
         if not isdate(AddTime) then AddTime = now()
         
-        ApplyStatus = getPostForm("as")
+        ApplyStatus = setting.getPostForm("as")
         if not isnum(ApplyStatus) then ApplyStatus = 1
         
         strSql = "insert into {prefix}Apply(UserID, ContentID, Jobs, Linkman, Gender, Age, Marriage, Education, RegResidence, EduResume, JobResume, Address, PostCode, Phone, Mobile, Email, QQ, AddTime, ApplyStatus) values ("&UserID&", "&ContentID&", '"&Jobs&"','"&Linkman&"', "&Gender&", "&Age&", '"&Marriage&"','"&Education&"','"&RegResidence&"','"&EduResume&"','"&JobResume&"','"&Address&"','"&PostCode&"','"&Phone&"','"&Mobile&"','"&Email&"','"&QQ&"', '"&AddTime&"', "&ApplyStatus&")"
@@ -108,15 +85,10 @@
         'die strSql
             
         conn.exec strSql,"exe"
-        response.write setting.setResultMessage(0,"简历投递成功")
-        response.end
+        setting.setResultMessage 0,"简历投递成功"
     End Sub 
     
     Sub reply
         
     End Sub
-    
-    function getPostForm(name)
-        getPostForm = getForm(name,"post")
-    end function
 %>

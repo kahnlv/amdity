@@ -7,14 +7,20 @@
 </HEAD>
 
 <body>
-    <form action="/join/aspcms_joinfun.asp?act=add&id=110" method="POST">
-        <input type="text" name="cn" id="cn">
-        <input type="text" name="ca" id="ca">
-        <input type="text" name="oc" id="oc">
-        <input type="text" name="ph" id="ph">
-        <input type="submit" value="提交">
-    </form>
-    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <p>招商加盟</p>
+    <p>公司名称：<input type="text" name="cn" id="cn"></p>
+    <p>公司地址：<input type="text" name="ca" id="ca"></p>
+    <p>在线联系：<input type="text" name="oc" id="oc"></p>
+    <p>联系电话：<input type="text" name="ph" id="ph"></p>
+    <p>公司网址：<input type="text" name="ph" id="cu"></p>
+    <p>电子邮件：<input type="text" name="ph" id="em"></p>
+    <p>公司优势：<textarea name="" id="ad" cols="30" rows="10"></textarea></p>
+    <p><input type="button" id="join" value="提交"></p>
+    <p>招聘</p>
+    <p></p>
+    <p><input type="button" id="job" value="提交"></p>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/test.js" charset="gbk"></script>
 </body>
 
 </HTML>

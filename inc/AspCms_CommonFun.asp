@@ -224,7 +224,7 @@ Sub alertMsgAndGo(str,url)
 	if url<>"" then urlstr="location.href='"&url&"';"
 	if url="-1" then urlstr="history.go(-1);"
 	if not isNul(str) then str ="alert('"&str&"');"
-	echo("<script>"&str&urlstr&"</script>")
+	echo("<script >"&str&urlstr&"</script>")
 	response.End()
 End Sub
 Sub alertMsgAndGoParent(str,url)

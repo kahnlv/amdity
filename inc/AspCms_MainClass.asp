@@ -2,9 +2,11 @@
 <%
 Option Explicit
 
+Session.CodePage=936 
+Response.Charset="GBK"
+
 Const DebugMode = false
 Dim AppSpan:AppSpan=timer
-'Response.Charset = "gbk"
 
 dim CONN_OBJ_NAME,RECORDSET_OBJ_NAME,DICTIONARY_OBJ_NAME,JPEG_OBJ_NAME,FSO_OBJ_NAME,STREAM_OBJ_NAME
 CONN_OBJ_NAME="ADODB.CONNECTION"
@@ -102,10 +104,32 @@ Class SettingClass
 	
 	End Sub
     
-    function setResultMessage(resultCode,msg)
+    sub setResultMessage(resultCode,msg)
         Dim message : message = "{""resultCode"":{0},""msg"":""{1}""}"
-        setResultMessage = replace(replace(message,"{0}",resultCode),"{1}",msg)
-    end function
+        response.write replace(replace(message,"{0}",resultCode),"{1}",msg)
+        response.end
+    end sub    
+        
+    function getPostForm(name)
+        getPostForm = filterPara(Vbs(getForm(name,"both")))
+    end function   
+    
+    Function Vbs(str)
+        Dim x
+        x=InStr(str,"%") 
+        Do While x>0
+            Vbs=Vbs&Mid(str,1,x-1)
+            If LCase(Mid(str,x+1,1))="u" Then
+                Vbs=Vbs&ChrW(CLng("&H"&Mid(str,x+2,4)))
+                str=Mid(str,x+6)
+            Else
+                Vbs=Vbs&Chr(CLng("&H"&Mid(str,x+1,2)))
+                str=Mid(str,x+3)
+            End If
+            x=InStr(str,"%")
+        Loop
+        Vbs=Vbs&str
+    End Function
 End Class
 
 Class DBClass
