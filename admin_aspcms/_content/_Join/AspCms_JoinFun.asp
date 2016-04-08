@@ -26,4 +26,14 @@
         Conn.Exec "delete from {prefix}Join where ApplyID in("&id&")","exe"
         alertMsgAndGo "É¾³ý³É¹¦","?page="&page&"&order="&order&"&sort="&sortID&"&keyword="&keyword
     End Sub
+    
+    Sub getContent
+        dim id:id=getForm("id","get")
+        if not isnul(id) then
+            Dim rs : set rs =  conn.exec "select * from {prefix}Join where Joinid = "&id,"r1"
+            if not rs.eof then
+                 
+            end if
+        end if        
+    End Sub
 %>
