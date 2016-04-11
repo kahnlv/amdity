@@ -37,7 +37,6 @@ function SelAll(theForm){
     <TD width=36 align="center" class=biaoti>编号</TD>
     <TD width="174" height=28 align="center" class=biaoti><span class="searchzone">公司名称</span></TD>
     <TD width=112 align="center" class=biaoti><span class="searchzone">公司信息</span></TD>
-    <TD width=49 align="center" class=biaoti><span class="searchzone">公司地址</span></TD>
     <TD width=199 align="center" class=biaoti><span class="searchzone">联系方式</span></TD>
     <TD width=148 align="center" class=biaoti><span class="searchzone">申请时间</span></TD>
     <TD width=39 align="center" class=biaoti><span class="searchzone">状态</span></TD>
