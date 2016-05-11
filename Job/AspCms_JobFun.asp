@@ -10,7 +10,7 @@
             case "reply": reply
         end Select
     else
-        setting.setResultMessage -1,"非法操作"
+        setting.setResultMessage -1,"非法操作",""
     end if
     
     Sub addApply
@@ -18,13 +18,13 @@
         
         ContentID = getForm("id","get")
         if isnul(ContentID) then
-            setting.setResultMessage -1,"招聘记录不存在"   
+            setting.setResultMessage -1,"招聘记录不存在"  ,"" 
         else
             Dim rs : set rs = Conn.Exec("select * from {prefix}Content where ContentID = "&ContentID,"r1")
             if not rs.eof then
-                if rs("SortID") <> 12 or rs("ContentStatus") <> 1 setting.setResultMessage -1,"招聘记录不存在"
+                if rs("SortID") <> 12 or rs("ContentStatus") <> 1 setting.setResultMessage -1,"招聘记录不存在",""
             else
-                setting.setResultMessage -1,"发生异常"
+                setting.setResultMessage -1,"发生异常",""
             end if     
         end if
         
@@ -35,7 +35,7 @@
         end if
         
         Jobs = setting.getPostForm("jobs")
-        if isnul(Jobs) then setting.setResultMessage -1,"请填写应聘职位" 
+        if isnul(Jobs) then setting.setResultMessage -1,"请填写应聘职位" ,""
         
         Linkman = setting.getPostForm("man")
         if isnul(Linkman) then setting.setResultMessage -1,"请填写联系人"

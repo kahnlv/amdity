@@ -1,5 +1,5 @@
 <%@LANGUAGE="VBSCRIPT" CODEPAGE="936"%>
-<%
+    <%
 Option Explicit
 
 Session.CodePage=936 
@@ -37,14 +37,14 @@ conn.databaseType=dbType
 dim objFso,objStream
 initAllObjects
 %>
-<!--#include file="../config/AspCms_Config.asp" -->
-<!--#include file="../config/AspCms_PayMentConfig.asp" -->
-<!--#include file="AspCms_CommonFun.asp" -->
-<!--#include file="AspCms_Version.asp" -->
-<!--#include file="AspCms_Getpy.asp" -->
-<!--#include file="md5.asp" -->
+        <!--#include file="../config/AspCms_Config.asp" -->
+        <!--#include file="../config/AspCms_PayMentConfig.asp" -->
+        <!--#include file="AspCms_CommonFun.asp" -->
+        <!--#include file="AspCms_Version.asp" -->
+        <!--#include file="AspCms_Getpy.asp" -->
+        <!--#include file="md5.asp" -->
 
-<%
+        <%
 Class SettingClass
 	Public languageID, languageName, languagePath, Alias, defaultTemplate, htmlFilePath, siteTitle, additionTitle, siteLogoUrl, siteUrl, companyName, companyAddress, companyPostCode, companyContact, companyPhone, companyMobile, companyFax, companyEmail, companyICP, statisticalCode, copyRight, siteKeywords, siteDesc, languageOrder,errid,errdes
 	
@@ -104,9 +104,14 @@ Class SettingClass
 	
 	End Sub
     
-    sub setResultMessage(resultCode,msg)
-        Dim message : message = "{""resultCode"":{0},""msg"":""{1}""}"
-        response.write replace(replace(message,"{0}",resultCode),"{1}",msg)
+    sub setResultMessage(resultCode,msg,datas)
+        Dim message : message = "{""resultCode"":{0},""msg"":""{1}"",""datas"":{2}}"
+		
+		if isnul(datas) then
+			datas = """"""
+		end if
+		
+        response.write replace(replace(replace(message,"{0}",resultCode),"{1}",msg),"{2}",datas)
         response.end
     end sub    
         
