@@ -1,7 +1,7 @@
 (function($) {
     var news = function() {
         var app = {
-            url: '/news/news.asp',
+            url: '/ajax/news.asp',
             init: function() {
                 var params = {};
                 params['act'] = 'class';
@@ -67,7 +67,7 @@
                         });
                     }
                 }
-                $('.newsNav').html(html);
+                $('.newsNav li').before(html);
             },
             getNewsList: function(result, index, pageindex) {
                 var $ul = (index == 0 ? $('.current_dynamic ul') : $('.past_dynamic ul')),

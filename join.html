@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Keywords" content="厦门安泰迪智能家居有限公司">
+    <meta name="description" content="厦门安泰迪智能家居有限公司">
+    <title>厦门安泰迪智能家居有限公司</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link href="css/common.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--头部 start-->
+    <div class="header">
+        <div class="sh_img"></div>
+        <ul class="menuNav">
+            <li><a href="">招商详情</a></li>
+            <li class="active"><a href="">在线加盟</a></li>
+        </ul>
+    </div>
+    <!--头部 end-->
+
+    <!--在线加盟-->
+    <div class="wrapper">
+        <div class="marT50 marB40">
+            <p class="fs_16">在线加盟</p>
+            <p class="fs_14">Talent Concept</p>
+        </div>
+        <div class="Tab">
+            <ul class="tab_head">
+                <li class="tab_head_item active">实体加盟申请单</li>
+                <li class="tab_head_item">网络分销申请单</li>
+            </ul>
+            <div class="tab_cont_wrap">
+                <!--实体加盟申请单-->
+                <div class="tab_content">
+                    <div class="tab_col">
+                        <span class="left_text fs_18"><i class="color_red">&lowast;</i>公司名称：</span><input type="text" name="" value="" class="tab_input marR30">
+                        <span class="left_text fs_18">公司网址：</span><input type="text" name="" value="" class="tab_input w450">
+                    </div>
+                    <div class="tab_col">
+                        <span class="left_text fs_18"><i class="color_red">&lowast;</i>公司地址：</span><input type="text" name="" value="" class="tab_input marR30">
+                        <span class="left_text fs_18"><i class="color_red">&lowast;</i>旺旺ID：</span><input type="text" name="" value="" class="tab_input w450">
+                    </div>
+                    <div class="tab_col">
+                        <span class="left_text fs_18"><i class="color_red">&lowast;</i>联系电话：</span><input type="text" name="" value="" class="tab_input marR30">
+                        <span class="left_text fs_18"><i class="color_red">&lowast;</i>联系姓名：</span><input type="text" name="" value="" class="tab_input w450">
+                    </div>
+                    <div class="tab_col">
+                        <span class="left_text fs_18"><i class="color_red">&lowast;</i>店铺名称：</span><input type="text" name="" value="" class="tab_input marR30">
+                        <span class="left_text fs_18">邮箱：</span><input type="text" name="" value="" class="tab_input w450">
+                    </div>
+                    <div class="tab_col">
+                        <span class="left_text fs_18"><i class="color_red">&lowast;</i>店铺地址：</span><input type="text" name="" value="" class="tab_input w975">
+                    </div>
+                    <div class="tab_col">
+                        <span class="left_text fs_18 fl"><i class="color_red">&lowast;</i>我的优势：</span>
+                        <textarea name="" class="tab_textarea" rows="7"></textarea>
+                    </div>
+                    <div class="tab_btn_wrap">
+                        <a class="sure_btn" href="javascript:;">确认提交</a>
+                        <a class="cancle_btn" href="javascript:;">取消</a>
+                    </div>
+                </div>
+                <!--网络分销申请单-->
+                <div class="tab_content">
+                    <div class="tab_col">
+                        <span class="left_text fs_18"><i class="color_red">&lowast;</i>公司名称：</span><input type="text" name="" value="" class="tab_input marR30">
+                        <span class="left_text fs_18">公司网址：</span><input type="text" name="" value="" class="tab_input w450">
+                    </div>
+                    <div class="tab_col">
+                        <span class="left_text fs_18"><i class="color_red">&lowast;</i>公司地址：</span><input type="text" name="" value="" class="tab_input marR30">
+                        <span class="left_text fs_18"><i class="color_red">&lowast;</i>旺旺ID：</span><input type="text" name="" value="" class="tab_input w450">
+                    </div>
+                    <div class="tab_col">
+                        <span class="left_text fs_18"><i class="color_red">&lowast;</i>联系电话：</span><input type="text" name="" value="" class="tab_input marR30">
+                        <span class="left_text fs_18"><i class="color_red">&lowast;</i>联系姓名：</span><input type="text" name="" value="" class="tab_input w450">
+                    </div>
+                    <div class="tab_col">
+                        <span class="left_text fs_18"><i class="color_red">&lowast;</i>店铺名称：</span><input type="text" name="" value="" class="tab_input marR30">
+                        <span class="left_text fs_18">邮箱：</span><input type="text" name="" value="" class="tab_input w450">
+                    </div>
+                    <div class="tab_col">
+                        <span class="left_text fs_18"><i class="color_red">&lowast;</i>店铺地址：</span><input type="text" name="" value="" class="tab_input w975">
+                    </div>
+                    <div class="tab_col">
+                        <span class="left_text fs_18 fl"><i class="color_red">&lowast;</i>我的优势：</span>
+                        <textarea name="" class="tab_textarea" rows="7"></textarea>
+                    </div>
+                    <div class="tab_btn_wrap">
+                        <a class="sure_btn" href="javascript:;">确认提交</a>
+                        <a class="cancle_btn" href="javascript:;">取消</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--#include virtual="/public/foot.html"-->
+
+    <script type="text/javascript">
+        $(function() {
+            $('.tab_head_item').eq(0).addClass('active').siblings().removeClass('active');
+            $('.tab_content').eq(0).show().siblings().hide();
+            $('.tab_head_item').hover(function() {
+                var _this = $(this);
+                var index = _this.index();
+                _this.addClass('active').siblings().removeClass('active');
+                $('.tab_content').eq(index).show().siblings().hide();
+            });
+        });
+    </script>
+</body>
+
+</html>
