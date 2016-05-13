@@ -2,7 +2,7 @@
 <%
     Dim action : action  = getForm("act","get")
     
-    Dim JoinID, SortID, UserID, CompanyName, CompanyUrl, CompanyAddress, OnlineContact, Phone, Email, Advantage
+    Dim JoinID, SortID, UserID, CompanyName, CompanyUrl, CompanyAddress, OnlineContact, Phone, Email, Advantage,Shop,ShopUrl,Contacts
     
     if len(action) > 0 then
         select case action
@@ -16,17 +16,10 @@
     sub addJoin
         dim strSql
         
-        SortID = getForm("id","get")
+        SortID = getForm("t","get")
         
         if isnul(SortID) then
-            setting.setResultMessage -1,"加盟信息不存在",""
-        else
-            Dim rs : set rs = Conn.Exec("select * from {prefix}Sort where SortID = "&SortID,"r1")
-            if not rs.eof then
-                if rs("SortStatus") <> 1 then setting.setResultMessage -1,"加盟信息不存在" ,""
-            else
-                setting.setResultMessage -1,"发生异常",""
-            end if     
+            setting.setResultMessage -1,"网络异常，请稍候重试",""         
         end if
         
         if not isnul(Session("uid")) then 
@@ -42,7 +35,7 @@
         if isnul(CompanyAddress) then setting.setResultMessage -1,"请填写公司地址" ,""
         
         OnlineContact = setting.getPostForm("oc")
-        if isnul(OnlineContact) then setting.setResultMessage -1,"请填写在线联系方式",""
+        'if isnul(OnlineContact) then setting.setResultMessage -1,"请填写在线联系方式",""
         
         dim regEx : set regEx = new RegExp
         regEx.IgnoreCase = false
@@ -64,8 +57,11 @@
         if not isnul(Email) and not regEx.Test(Email)  then  setting.setResultMessage -1,"请输入正确的电子邮箱",""
         
         Advantage = setting.getPostForm("ad")
+        shop = setting.getPostForm("sh")
+        shopurl = setting.getPostForm("su")
+        Contacts = setting.getPostForm("con")
         
-        strSql = "insert into {prefix}Join(SortID, UserID, CompanyName, CompanyUrl, CompanyAddress, OnlineContact, Phone, Email, Advantage,CreateTime) values ("&SortID&", "&UserID&", '"&CompanyName&"', '"&CompanyUrl&"', '"&CompanyAddress&"', '"&OnlineContact&"', '"&Phone&"', '"&Email&"', '"&Advantage&"','"&now()&"')"
+        strSql = "insert into {prefix}Join(SortID, UserID, CompanyName, CompanyUrl, CompanyAddress, OnlineContact, Phone, Email, Advantage,CreateTime,shop,shopurl,Contacts) values ("&SortID&", "&UserID&", '"&CompanyName&"', '"&CompanyUrl&"', '"&CompanyAddress&"', '"&OnlineContact&"', '"&Phone&"', '"&Email&"', '"&Advantage&"','"&now()&",'"&shop&"','"&shopurl&"','"&Contacts&"')"
         
         'die strSql
         conn.exec strSql,"exe"

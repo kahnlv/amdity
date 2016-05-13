@@ -191,7 +191,52 @@
         </div>
     </div>
 
-    <!--#include virtual="public/foot.html"-->
+    <!--友情链接-->
+    <div class="tac friendlyLink marT50">
+        <span>友情链接：</span><a href="" title="">天猫旗舰店</a>|<a href="" title="">阿里巴巴中国站</a>|<a href="" title="">安泰迪官方新浪微博</a>|<a href="" title="">安泰迪官方腾讯微博</a>|<a href="" title="">安泰迪官方腾讯空间</a>|<a href="" title="">国美旗舰店</a>|<a href="" title="">扫地机器人论坛网</a>|
+        <a href="" title="">苏宁旗舰店</a>|<a href="" title="">阿里巴巴国际站</a>
+    </div>
+    <!--脚部内容 start-->
+    <div class="footer">
+        <div class="wrapper">
+            <div class="footBox fl">
+                <p>帮助中心</p>
+                <a href="" title="">购物指南</a>
+                <a href="" title="">支付方式</a>
+                <a href="" title="">配送方式</a>
+            </div>
+            <div class="footBox fl">
+                <p>服务支持</p>
+                <a href="" title="">售后政策</a>
+                <a href="" title="">企业团购</a>
+                <a href="" title="">相关下载</a>
+            </div>
+            <div class="footBox fl">
+                <p>了解安泰迪</p>
+                <a href="" title="">关于ATD</a>
+                <a href="" title="">联系我们</a>
+                <a href="" title="">微信公众号</a>
+                <a href="" title="">分校计划</a>
+            </div>
+            <div class="footBox fl">
+                <p>关注我们</p>
+                <a href="" title="">新浪微博</a>
+                <a href="" title="">官方微信</a>
+                <a href="" title="">天猫旗舰店</a>
+                <a href="" title="">京东旗舰店</a>
+            </div>
+            <div class="foot_lastBox fl">
+                <p class="phone">400-889-7076</p>
+                <p class="fs_14">周一至周日 9:00-20:00</p>
+                <a class="onlineBtn" href="" title="">在线客服</a>
+            </div>
+        </div>
+    </div>
+    <!--脚部内容 end-->
+
+
+    <script type="text/javascript" src="js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="js/lib/Jcode.js"></script>
 
     <script type="text/javascript" src="js/news.js"></script>
     <script type="text/javascript">
@@ -213,6 +258,10 @@
                 $(this).siblings('.searchInput').focus();
             });
         }();
+
+        $(document).ready(function() {
+            news.init();
+        });
     </script>
 </body>
 

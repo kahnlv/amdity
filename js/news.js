@@ -1,29 +1,31 @@
-(function($) {
+(function($, undefined) {
     var news = function() {
         var app = {
             url: '/ajax/news.asp',
             init: function() {
-                var params = {};
-                params['act'] = 'class';
-                params['id'] = 1;
-                app.ajaxCall(params, app.getNewsClass);
+                app.ajaxCall({
+                    'act': 'class',
+                    'id': 1
+                }, 'get', app.getNewsClass);
                 $(document).on('click.news', '.newsnav_Item', function() {
                     var id = $(this).attr('data-id'),
+                        index = $(this).index(),
                         name = $(this).text();
+                    $('.newsnav_Item').length == ($(this).index() + 1) && (window.location = 'index.html');
                     $(this).addClass('on').siblings().removeClass('on');
                     $('.current_dynamic h3').text(name);
                     $('.past_dynamic h3').text('往期' + name);
                     app.ajaxCall({
                         'act': 'list',
                         'id': id
-                    }, function(result) {
+                    }, 'get', function(result) {
                         app.getNewsList(result, 0);
                     });
                     app.ajaxCall({
                         'act': 'list',
                         'id': id,
                         'pi': 2
-                    }, function(result) {
+                    }, 'get', function(result) {
                         app.getNewsList(result, 1, 1);
                     });
                 });
@@ -34,7 +36,7 @@
                         'act': 'list',
                         'id': id,
                         'pi': pageindex + 1
-                    }, function(result) {
+                    }, 'get', function(result) {
                         app.getNewsList(result, 1, pageindex);
                     });
                 });
@@ -55,14 +57,14 @@
                         app.ajaxCall({
                             'act': 'list',
                             'id': item.id
-                        }, function(result) {
+                        }, 'get', function(result) {
                             app.getNewsList(result, 0);
                         });
                         app.ajaxCall({
                             'act': 'list',
                             'id': item.id,
                             'pi': 2
-                        }, function(result) {
+                        }, 'get', function(result) {
                             app.getNewsList(result, 1, 1);
                         });
                     }
@@ -105,38 +107,32 @@
             },
             pager: function(pageCount, pageindex) {
                 var html = '';
-                if (pageindex == 1) {
-                    html = '<span>＜</span>';
-                } else {
-                    html = '<a href="javascript:;" data-page="' + (pageindex - 1) + '" class="prev">＜</a>';
-                }
+                html = (pageindex == 1 ? ('<span>＜</span>') : ('<a href="javascript:;" data-page="' + (pageindex - 1) + '" class="prev">＜</a>'));
                 for (var i = 1; i <= pageCount; i++) {
-                    if (i == pageindex) {
-                        html += '<span>' + i + '</span>';
-                    } else {
-                        html += '<a data-page="' + i + '" href="javascript:;">' + i + '</a>';
-                    }
+                    html += (i == pageindex ? ('<span>' + i + '</span>') : ('<a data-page="' + i + '" href="javascript:;">' + i + '</a>'));
                 }
-                if (pageindex == pageCount) {
-                    html += '<span>＞</span>';
-                } else {
-                    html += '<a href="javascript:;" data-page="' + (pageindex + 1) + '" class="next">＞</a>';
-                }
+                html += (pageindex == pageCount ? '<span>＞</span>' : ('<a href="javascript:;" data-page="' + (pageindex + 1) + '" class="next">＞</a>'));
                 $('.pagination').html(html);
             },
-            ajaxCall: function(params, callback) {
+            ajaxCall: function(params, method, callback) {
                 $.ajax({
                     url: app.url,
                     data: params,
                     dataType: 'json',
-                    type: 'get',
+                    type: method,
                     aysn: false,
                     success: function(result) {
                         if (result.resultCode > -1) {
+                            if (method == 'post') {
+                                alert(result.msg);
+                            }
                             (callback && typeof(callback) === "function") && callback(result.datas);
                         } else {
                             alert(result.msg);
                         }
+                    },
+                    error: function(params) {
+                        console.log(params);
                     }
                 })
             }
@@ -144,8 +140,4 @@
         return app;
     }();
     window.news = news;
-})(jQuery)
-
-$(document).ready(function() {
-    news.init();
-});
+})(jQuery);
