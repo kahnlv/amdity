@@ -1,9 +1,10 @@
+@charset "gb2312";
 /*common*/
 html {
   background-color: #fff;
 }
 body {
-  font-family: "微软雅黑", Arial, Verdana;
+  font-family: "΢���ź�", Arial, Verdana;
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
   font-size: 14px;
@@ -68,24 +69,22 @@ a {
   overflow: hidden;
 }
 input,
-textarea,
-select,
-option {
+textarea {
   outline: none;
 }
 .wrapper {
   width: 1192px;
   margin: 0 auto;
 }
-/*组合样式*/
-/*背景颜色*/
+/*������ʽ*/
+/*������ɫ*/
 .grayBg {
   background-color: #efefef;
 }
 .borderB_80 {
   border-bottom: 1px solid #808080;
 }
-/*字体颜色&大小*/
+/*������ɫ&��С*/
 .color_red {
   color: #e70012;
 }
@@ -138,6 +137,9 @@ option {
 .marT20 {
   margin-top: 20px;
 }
+.marB20 {
+  margin-bottom: 20px;
+}
 .marR20 {
   margin-right: 20px;
 }
@@ -150,9 +152,6 @@ option {
 .marT50 {
   margin-top: 50px;
 }
-.marB50 {
-  margin-bottom: 50px;
-}
 .marT40 {
   margin-top: 40px;
 }
@@ -162,13 +161,13 @@ option {
 .marR30 {
   margin-right: 30px;
 }
-/*关于售后*/
+/*�����ۺ�*/
 .header {
   height: 540px;
 }
 .sh_img {
   height: 500px;
-  background: url(../images/innerposter/售后服务-海报.jpg) no-repeat center;
+  background: url(../images/innerposter/�ۺ�����-����.jpg) no-repeat center;
 }
 .menuNav {
   width: 1192px;
@@ -206,7 +205,7 @@ option {
   font-size: 16px;
   line-height: 1.6;
 }
-/*联系我们*/
+/*��ϵ����*/
 #allmap {
   height: 498px;
   overflow: hidden;
@@ -238,7 +237,7 @@ option {
   background-image: url('../slice/spirite/zuobiao.png');
   background-repeat: no-repeat;
 }
-/*友情链接*/
+/*��������*/
 .friendshipUL {
   padding: 35px;
   border: 1px solid #aaa;
@@ -280,7 +279,7 @@ option {
   background-color: #aaa;
   color: #fff;
 }
-/*在线加盟*/
+/*���߼���*/
 .tab_head {
   border: 1px solid #aaa;
   overflow: hidden;
@@ -359,7 +358,7 @@ option {
   width: 74px;
   background-color: #737373;
 }
-/*在线留言*/
+/*��������*/
 .messageDiv {
   padding: 60px 0 60px 223px;
   border: 1px solid #aaa;
@@ -382,7 +381,7 @@ option {
   width: 578px;
   resize: none;
 }
-.submit_btn {
+.messageDiv .submit_btn {
   display: block;
   width: 145px;
   height: 35px;
@@ -392,7 +391,7 @@ option {
   color: #fff;
   text-align: center;
 }
-/*在线商城*/
+/*�����̳�*/
 .onlineShopDiv {
   height: 774px;
   position: relative;
@@ -403,79 +402,173 @@ option {
   top: 0;
 }
 .onlineShopUL {
-  width: 769px;
-  border: 1px solid #aaa;
+  width: 767px;
+  position: absolute;
+  top: 120px;
+  right: 30px;
+  z-index: 10;
+  background-color: #fff;
+  border: 1px solid #cacaca;
+  -moz-box-shadow: 9px 9px 15px -3px #cecece;
+  -webkit-box-shadow: 9px 9px 15px -3px #cecece;
+  box-shadow: 9px 9px 15px -3px #cecece;
 }
-/*在线应聘*/
-.applyDiv {
-  padding: 50px 105px 35px 105px;
-  border: 1px solid #aaa;
+.onlineShopUL a {
+  display: block;
 }
-.applyDiv .black_btn {
-  display: inline-block;
-  width: 158px;
-  height: 44px;
-  line-height: 44px;
-  background-color: #000;
-  color: #fff;
-  font-size: 20px;
-  text-align: center;
-  margin-right: 20px;
-}
-.applyDiv .red_btn {
-  display: inline-block;
-  width: 158px;
-  height: 44px;
-  line-height: 44px;
+.onlineShopUL a:hover p {
   background-color: #e70012;
   color: #fff;
-  font-size: 20px;
+}
+.onlineShopUL li {
+  float: left;
+  width: 191px;
+  border-left: 1px solid #cacaca;
+}
+.onlineShopUL li:first-child {
+  border-left: none;
+}
+.onlineShopUL .type_icon {
+  display: block;
+  width: 120px;
+  height: 120px;
+  margin: 16px auto;
+}
+.onlineShopUL .tmsc_icon {
+  background-image: url('../slice/zxsc/tm_round.png');
+  background-repeat: no-repeat;
+}
+.onlineShopUL .jdsc_icon {
+  background-image: url('../slice/zxsc/jd_round.png');
+  background-repeat: no-repeat;
+}
+.onlineShopUL .snyg_icon {
+  background-image: url('../slice/zxsc/sn_round.png');
+  background-repeat: no-repeat;
+}
+.onlineShopUL .albb_icon {
+  background-image: url('../slice/zxsc/albb_round.png');
+  background-repeat: no-repeat;
+}
+.onlineShopUL .text {
+  height: 50px;
+  line-height: 50px;
+  font-size: 21px;
+  background: #ddd;
   text-align: center;
 }
-.applyDiv .rows {
-  width: 270px;
+/**/
+/*��Ƹְλ*/
+.jobList li {
+  margin-bottom: 20px;
+  border: 1px solid #aaa;
+}
+.jobList .job_name {
+  padding: 12px;
+  font-size: 20px;
+  background-color: #ddd;
+}
+.jobList .job_part {
+  width: 565px;
+  min-height: 133px;
   float: left;
-  margin-left: 82px;
+  padding: 10px;
+  line-height: 2;
 }
-.applyDiv .rows:first-child {
-  margin-left: 0;
+.jobList .online_btn {
+  display: block;
+  margin: 15px auto 25px;
+  width: 112px;
+  height: 29px;
+  line-height: 29px;
+  background-image: url('../slice/spirite/btn_border.png');
+  background-repeat: no-repeat;
+  text-align: center;
 }
-.applyDiv .col {
-  margin-top: 40px;
+/*��������*/
+.grayBg2 {
+  background-color: #e1e1e1;
 }
-.applyDiv .rows_input {
-  width: 250px;
-  height: 43px;
-  padding: 0 10px;
-  line-height: 43px;
+.detail_left {
+  width: 814px;
+  margin: 22px;
+  float: left;
+  background-color: #fff;
+  border: 1px solid #aaa;
+}
+.detail_left th {
+  padding: 10px 5px;
+}
+.detail_left td {
+  padding: 8px 5px;
+  border: 1px solid #aaa;
+  vertical-align: middle;
   font-size: 16px;
+}
+.detail_left tr td:first-child {
+  width: 80px;
+  text-align: center;
+}
+.detail_left .certificate {
+  position: absolute;
+  margin-left: 10px;
+  border: 2px solid #e3e3e3;
+  width: 206px;
+  display: none;
+}
+.detail_left .show_certi {
+  cursor: pointer;
+}
+.detail_left .show_certi:hover + .certificate {
+  display: block;
+  left: 650px;
+}
+.detail_right {
+  width: 310px;
+  margin-top: 22px;
+  float: left;
+  background-color: #fff;
   border: 1px solid #aaa;
 }
-.applyDiv .col_input {
-  width: 957px;
-  height: 43px;
-  padding: 0 10px;
-  line-height: 43px;
+.detail_right th {
+  padding: 10px 0 10px 20px;
+}
+.detail_right td {
+  padding: 10px 0 10px 20px;
+  border: 1px solid #aaa;
+  vertical-align: middle;
   font-size: 16px;
+}
+.detail_right tr td:first-child {
+  width: 80px;
+}
+.chart_detail {
+  width: 1148px;
+  margin: 28px 22px 0;
+  background-color: #fff;
   border: 1px solid #aaa;
 }
-.applyDiv .col_textarea {
-  padding: 0 10px;
-  width: 957px;
-  resize: none;
+.chart_detail th {
+  width: 110px;
+  text-align: center;
+  vertical-align: middle;
+}
+.chart_detail td {
+  padding: 10px 5px;
   border: 1px solid #aaa;
 }
-.applyDiv .submit_btn {
-  margin: 40px auto 0;
+.apply_btn {
+  display: block;
+  width: 145px;
+  height: 35px;
+  margin: 35px auto;
+  line-height: 35px;
+  background: #e70012;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
 }
-.apply_select {
-  width: 136px;
-  height: 45px;
-  padding-left: 16px;
-  border: 1px solid #aaa;
-  font-size: 18px;
-}
-/*脚部*/
+/*�Ų�*/
 .friendlyLink {
   padding: 10px 0;
   background: #efefef;

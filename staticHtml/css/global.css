@@ -3,7 +3,7 @@ html {
   background-color: #fff;
 }
 body {
-  font-family: "微软雅黑", Arial, Verdana;
+  font-family: "��?��?雅黑", Arial, Verdana;
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
   font-size: 12px;
@@ -165,7 +165,7 @@ a {
 .logoP span {
   letter-spacing: 7px;
 }
-/**头部搜索框**/
+/**头部搜索��?**/
 .searchNav_Wrap {
   width: 227px;
   display: inline-block;
@@ -289,10 +289,12 @@ a {
   width: 552px;
   height: 150px;
   background-color: #efefef;
+  -moz-box-shadow: 0 4px 15px -3px #040000;
+  -webkit-box-shadow: 0 4px 15px -3px #040000;
   box-shadow: 0 4px 15px -3px #040000;
   display: none;
 }
-/***产品中心/招商加盟/售后服务***/
+/***产品��?��?/招商加盟/��?后服��?***/
 .listLeft {
   width: 160px;
   height: 112px;
@@ -370,7 +372,7 @@ a {
   background-image: url('../slice/zxsc/albb.png');
   background-repeat: no-repeat;
 }
-/**切换语言**/
+/**切换��?言**/
 .languageDiv {
   width: 39px;
   float: right;
@@ -446,7 +448,7 @@ a {
   text-align: center;
   border-left: 1px solid #e6e6e6;
 }
-/*轮播*/
+/*��?��?*/
 #slide-box {
   overflow: hidden;
   position: relative;
@@ -544,7 +546,7 @@ a {
   height: 281px;
   width: 100%;
 }
-/*视频*/
+/*视�??*/
 .videoBox {
   position: relative;
   width: 385px;
@@ -558,7 +560,7 @@ a {
   left: 0;
   background: url(../images/videomask.png) no-repeat center;
 }
-/*最新新闻*/
+/*最新新��?*/
 .newsBox {
   width: 788px;
   height: 192px;
@@ -667,7 +669,7 @@ a {
   background-color: #646e78;
   font-size: 14px;
 }
-/*新闻资讯*/
+/*新闻资�??*/
 .newsNav {
   width: 298px;
   float: left;
