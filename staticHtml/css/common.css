@@ -68,7 +68,9 @@ a {
   overflow: hidden;
 }
 input,
-textarea {
+textarea,
+select,
+option {
   outline: none;
 }
 .wrapper {
@@ -111,6 +113,9 @@ textarea {
 .fs_18 {
   font-size: 18px;
 }
+.fs_20 {
+  font-size: 20px;
+}
 .fs_21 {
   font-size: 21px;
 }
@@ -144,6 +149,9 @@ textarea {
 }
 .marT50 {
   margin-top: 50px;
+}
+.marB50 {
+  margin-bottom: 50px;
 }
 .marT40 {
   margin-top: 40px;
@@ -374,7 +382,7 @@ textarea {
   width: 578px;
   resize: none;
 }
-.messageDiv .submit_btn {
+.submit_btn {
   display: block;
   width: 145px;
   height: 35px;
@@ -393,6 +401,79 @@ textarea {
   position: absolute;
   left: -135px;
   top: 0;
+}
+.onlineShopUL {
+  width: 769px;
+  border: 1px solid #aaa;
+}
+/*在线应聘*/
+.applyDiv {
+  padding: 50px 105px 35px 105px;
+  border: 1px solid #aaa;
+}
+.applyDiv .black_btn {
+  display: inline-block;
+  width: 158px;
+  height: 44px;
+  line-height: 44px;
+  background-color: #000;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  margin-right: 20px;
+}
+.applyDiv .red_btn {
+  display: inline-block;
+  width: 158px;
+  height: 44px;
+  line-height: 44px;
+  background-color: #e70012;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+}
+.applyDiv .rows {
+  width: 270px;
+  float: left;
+  margin-left: 82px;
+}
+.applyDiv .rows:first-child {
+  margin-left: 0;
+}
+.applyDiv .col {
+  margin-top: 40px;
+}
+.applyDiv .rows_input {
+  width: 250px;
+  height: 43px;
+  padding: 0 10px;
+  line-height: 43px;
+  font-size: 16px;
+  border: 1px solid #aaa;
+}
+.applyDiv .col_input {
+  width: 957px;
+  height: 43px;
+  padding: 0 10px;
+  line-height: 43px;
+  font-size: 16px;
+  border: 1px solid #aaa;
+}
+.applyDiv .col_textarea {
+  padding: 0 10px;
+  width: 957px;
+  resize: none;
+  border: 1px solid #aaa;
+}
+.applyDiv .submit_btn {
+  margin: 40px auto 0;
+}
+.apply_select {
+  width: 136px;
+  height: 45px;
+  padding-left: 16px;
+  border: 1px solid #aaa;
+  font-size: 18px;
 }
 /*脚部*/
 .friendlyLink {
