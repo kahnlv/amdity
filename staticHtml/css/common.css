@@ -172,7 +172,21 @@ option {
 }
 .sh_img {
   height: 500px;
+}
+.poster1{
   background: url(../images/innerposter/shfw-poster.jpg) no-repeat center;
+}
+.poster2{
+  background: url(../images/innerposter/lxwm-poster.jpg) no-repeat center;
+}
+.poster3{ 
+  background: url(../images/innerposter/zxsc-poster.jpg) no-repeat center;
+}
+.poster4{ 
+  background: url(../images/innerposter/zsjm-poster.jpg) no-repeat center;
+}
+.poster5{ 
+  background: url(../images/innerposter/zxns-poster.jpg) no-repeat center;
 }
 .menuNav {
   width: 1192px;
