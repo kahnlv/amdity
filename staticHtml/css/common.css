@@ -4,7 +4,7 @@ html {
   background-color: #fff;
 }
 body {
-  font-family: "΢���ź�", Arial, Verdana;
+  font-family: "΢���ź�", Arial, Verdana;
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
   font-size: 14px;
@@ -69,22 +69,24 @@ a {
   overflow: hidden;
 }
 input,
-textarea {
+textarea,
+select,
+option {
   outline: none;
 }
 .wrapper {
   width: 1192px;
   margin: 0 auto;
 }
-/*������ʽ*/
-/*������ɫ*/
+/*×éºÏÑùÊ½*/
+/*±³¾°ÑÕÉ«*/
 .grayBg {
   background-color: #efefef;
 }
 .borderB_80 {
   border-bottom: 1px solid #808080;
 }
-/*������ɫ&��С*/
+/*×ÖÌåÑÕÉ«&´óÐ¡*/
 .color_red {
   color: #e70012;
 }
@@ -152,6 +154,9 @@ textarea {
 .marT50 {
   margin-top: 50px;
 }
+.marB50 {
+  margin-bottom: 50px;
+}
 .marT40 {
   margin-top: 40px;
 }
@@ -161,13 +166,13 @@ textarea {
 .marR30 {
   margin-right: 30px;
 }
-/*�����ۺ�*/
+/*¹ØÓÚÊÛºó*/
 .header {
   height: 540px;
 }
 .sh_img {
   height: 500px;
-  background: url(../images/innerposter/�ۺ�����-����.jpg) no-repeat center;
+  background: url(../images/innerposter/shfw-poster.jpg) no-repeat center;
 }
 .menuNav {
   width: 1192px;
@@ -182,6 +187,8 @@ textarea {
   background-image: url('../slice/spirite/innerMenu1.png');
   background-repeat: no-repeat;
   text-align: center;
+  *display: inline;
+  *zoom: 1;
 }
 .menuNav li.active {
   background-image: url('../slice/spirite/innerMenu2.png');
@@ -205,7 +212,7 @@ textarea {
   font-size: 16px;
   line-height: 1.6;
 }
-/*��ϵ����*/
+/*ÁªÏµÎÒÃÇ*/
 #allmap {
   height: 498px;
   overflow: hidden;
@@ -237,7 +244,7 @@ textarea {
   background-image: url('../slice/spirite/zuobiao.png');
   background-repeat: no-repeat;
 }
-/*��������*/
+/*ÓÑÇéÁ´½Ó*/
 .friendshipUL {
   padding: 35px;
   border: 1px solid #aaa;
@@ -279,7 +286,7 @@ textarea {
   background-color: #aaa;
   color: #fff;
 }
-/*���߼���*/
+/*ÔÚÏß¼ÓÃË*/
 .tab_head {
   border: 1px solid #aaa;
   overflow: hidden;
@@ -358,7 +365,7 @@ textarea {
   width: 74px;
   background-color: #737373;
 }
-/*��������*/
+/*ÔÚÏßÁôÑÔ*/
 .messageDiv {
   padding: 60px 0 60px 223px;
   border: 1px solid #aaa;
@@ -381,7 +388,7 @@ textarea {
   width: 578px;
   resize: none;
 }
-.messageDiv .submit_btn {
+.submit_btn {
   display: block;
   width: 145px;
   height: 35px;
@@ -391,7 +398,7 @@ textarea {
   color: #fff;
   text-align: center;
 }
-/*�����̳�*/
+/*ÔÚÏßÉÌ³Ç*/
 .onlineShopDiv {
   height: 774px;
   position: relative;
@@ -458,7 +465,7 @@ textarea {
   text-align: center;
 }
 /**/
-/*��Ƹְλ*/
+/*ÕÐÆ¸Ö°Î»*/
 .jobList li {
   margin-bottom: 20px;
   border: 1px solid #aaa;
@@ -485,7 +492,100 @@ textarea {
   background-repeat: no-repeat;
   text-align: center;
 }
-/*��������*/
+/*在线应聘*/
+.applyDiv {
+  padding: 50px 105px 35px 105px;
+  border: 1px solid #aaa;
+}
+.applyDiv .black_btn {
+  display: inline-block;
+  width: 158px;
+  height: 44px;
+  line-height: 44px;
+  background-color: #000;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  margin-right: 20px;
+}
+.uploadDiv {
+  display: inline-block;
+  width: 158px;
+  height: 44px;
+  line-height: 44px;
+  background-color: #e70012;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+.uploadDiv .uploadfile {
+  display: block;
+  width: 158px;
+  height: 44px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  opacity: 0;
+  *display: inline;
+  *zoom: 1;
+}
+.applyDiv .red_btn {
+  display: inline-block;
+  width: 158px;
+  height: 44px;
+  line-height: 44px;
+  background-color: #e70012;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+}
+.applyDiv .rows {
+  width: 270px;
+  float: left;
+  padding-left: 82px;
+}
+.applyDiv .rows:first-child {
+  padding-left: 0;
+}
+.applyDiv .col {
+  margin-top: 40px;
+}
+.applyDiv .rows_input {
+  width: 250px;
+  height: 43px;
+  padding: 0 10px;
+  line-height: 43px;
+  font-size: 16px;
+  border: 1px solid #aaa;
+}
+.applyDiv .col_input {
+  width: 957px;
+  height: 43px;
+  padding: 0 10px;
+  line-height: 43px;
+  font-size: 16px;
+  border: 1px solid #aaa;
+}
+.applyDiv .col_textarea {
+  padding: 0 10px;
+  width: 957px;
+  resize: none;
+  border: 1px solid #aaa;
+}
+.applyDiv .submit_btn {
+  margin: 40px auto 0;
+}
+.apply_select {
+  width: 136px;
+  height: 45px;
+  padding-left: 16px;
+  border: 1px solid #aaa;
+  font-size: 18px;
+}
+/*ÕÐÉÌÏêÇé*/
 .grayBg2 {
   background-color: #e1e1e1;
 }
@@ -568,7 +668,7 @@ textarea {
   text-align: center;
   font-size: 20px;
 }
-/*�Ų�*/
+/*½Å²¿*/
 .friendlyLink {
   padding: 10px 0;
   background: #efefef;
