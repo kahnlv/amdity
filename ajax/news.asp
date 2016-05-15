@@ -15,7 +15,7 @@
     end if
     
     Sub getLinks
-        Dim rs:set rs = Conn.Exec("SELECT LinkText, ImageURL, LinkURL FROM AspCms_Links WHERE   (LinkStatus = 1) ORDER BY LinkOrder DESC","r1")
+        Dim rs:set rs = Conn.Exec("SELECT LinkText, ImageURL, LinkURL FROM AspCms_Links WHERE   (LinkStatus = 1) ORDER BY LinkOrder","r1")
         itemIndex = 1
             jsonData = "["
             do while not rs.eof

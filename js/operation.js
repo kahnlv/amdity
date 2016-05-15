@@ -9,7 +9,7 @@
                 }, 'get', function(result) {
                     app.Links(result);
                     if (type == 1) {
-                        linkResult = result;
+                        app.getLinks(result);
                     }
                 });
                 switch (type) {
@@ -20,9 +20,6 @@
                         }, 'get', app.getApplyList);
                         break;
                     case 1:
-                        if (linkResult) {
-                            app.getLinks(linkResult);
-                        }
                         break;
                     default:
                         app.ajaxCall({
@@ -65,8 +62,32 @@
                         break;
                 }
             },
+            Links: function(result) {
+                var html = '',
+                    len = result.length,
+                    item;
+                for (var i = 0; i < len; i++) {
+                    item = result[i];
+                    html += '<a href="' + item.url + '" title="' + item.text + '" target="_blank">' + item.text + '</a>';
+                    if (i < len - 1) {
+                        html += '|';
+                    }
+                }
+                $('.friendlyLink span').after(html);
+            },
             getLinks: function(result) {
-
+                var html = '',
+                    len = result.length,
+                    item;
+                for (var i = 0; i < len; i++) {
+                    item = result[i];
+                    html += '<li class="clearfix">\
+				                <span class="name">' + item.text + '</span>\
+				                <span class="link">' + item.url + '</span>\
+				                <a href="' + item.url + '" class="into_link" target="_blank">µã»÷½øÈë</a>\
+			                </li>';
+                }
+                $('.friendshipUL').html(html);
             },
             getApplyList: function(result) {
                 var html = '',
